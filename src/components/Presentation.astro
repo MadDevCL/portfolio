@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+import { Image } from "astro:assets";
+import presentationImage from "../images/mad_dev_logo.webp";
+
+const { href, title, body } = Astro.props;
+---
+
+<section class="grid grid-cols-12">
+  <div class="col-span-12 md:col-span-4 content-center">
+    <Image
+      class="mx-auto my-auto"
+      src={presentationImage}
+      width="250"
+      height="250"
+      alt="Mad Dev Presentation Image"
+    />
+  </div>
+  <div
+    class="container mx-auto col-span-12 md:col-span-8 lg:col-span-6 my-auto"
+  >
+    <h1
+      class="text-white mt-8 md:mt-0 text-center md:text-left font-montserrat font-black text-4xl"
+    >
+      ¡Hola! Mi nombre es <span class="text-principal">Mad Dev</span>
+    </h1>
+    <p
+      class="text-white text-center md:text-left font-montserrat mt-8 font-medium"
+    >
+      Actuamente con más de <span class="text-principal">4 años</span> de experiencia
+      en el
+      <span class="text-principal">desarrollo de software</span>. También creo
+      contenido relacionado al desarrollo de software y la programación en
+      diferentes redes sociales.
+    </p>
+    <p
+      class="text-white text-center mt-2 md:text-left font-montserrat font-medium"
+    >
+      Te ayudo a crear las mejores <span class="text-principal"
+        >aplicaciones móviles y web</span
+      > totalmente desde <span class="text-principal">cero</span>. Más de 3 años
+      creando diferentes aplicaciones para <span class="text-principal"
+        >diferentes nichos</span
+      >.
+    </p>
+  </div>
+</section>

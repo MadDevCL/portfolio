@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Presentation from "../components/Presentation.astro";
+import Projects from "../components/Projects.astro";
+import { PROJECTS } from "../config";
+import AboutMe from "../components/AboutMe.astro";
+import GoodAt from "../components/GoodAt.astro";
+import Contact from "../components/Contact.astro";
+import Experience from "../components/Experience.astro";
+---
+
+<Layout
+  title="Portafolio Mad Dev"
+  description="Portafolio de Mad Dev, desarrollador de software con más de 4 años de experiencia en el desarrollo móvil y web."
+>
+  <main
+    class="h-full inset-0 -z-10 w-full items-center px-5 py-4 md:py-40 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+  >
+    <div class="md:px-14 lg:px-60">
+      <Presentation />
+      <div
+        class="flex flex-col md:flex-row items-center justify-center mt-4 md:mt-14"
+      >
+        <button
+          class="bg-[#1C1C33] text-white border border-principal rounded px-5 py-1 font-montserrat md:mr-12 mx-auto mb-2 md:mb-0"
+          >¡Hablemos!</button
+        >
+        <button
+          class="bg-[#1C1C33] text-white border border-principal rounded px-5 py-1 font-montserrat md:mr-12 mb-2 md:mb-0"
+          >LinkedIn</button
+        >
+        <button
+          class="bg-[#1C1C33] text-white border border-principal rounded px-5 py-1 font-montserrat md:mb-0"
+          >Mail</button
+        >
+      </div>
+      <div class="w-full h-[1px] mx-auto my-8 rounded-3xl bg-principal"></div>
+      <Projects projects={PROJECTS} />
+      <Experience />
+      <AboutMe />
+      <GoodAt />
+      <Contact />
+    </div>
+  </main>
+</Layout>

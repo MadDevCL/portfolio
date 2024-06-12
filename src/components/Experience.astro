@@ -1,0 +1,32 @@
+---
+import Chip from "./Chip.astro";
+import Title from "./Title.astro";
+import { EXPERIENCE } from "../config";
+---
+
+<section class="mt-12">
+  <Title title="Experiencia" />
+  {
+    EXPERIENCE.map(({ job, date, description, tags }) => (
+      <div class="lg:mx-22">
+        <div class="flex justify-between">
+          <p class="font-montserrat text-white font-black uppercase mb-4">
+            {job}
+          </p>
+          <p class="font-montserrat text-[#B2BABB] font-black uppercase mb-4">
+            {date}
+          </p>
+        </div>
+        <div>
+          {tags?.map((title) => (
+            <Chip title={title} />
+          ))}
+        </div>
+        <p class="font-montserrat text-[#B2BABB] font-normal mt-4">
+          {description}
+        </p>
+        <div class="w-full h-[1px] mx-auto my-8 rounded-3xl bg-principal" />
+      </div>
+    ))
+  }
+</section>
