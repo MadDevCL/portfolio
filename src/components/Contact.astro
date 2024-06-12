@@ -51,8 +51,6 @@ import Title from "./Title.astro";
 </section>
 
 <script is:inline>
-  // use astro:page-load event if you are using View Transitions
-
   document.addEventListener(
     "DOMContentLoaded",
     () => {
@@ -72,10 +70,11 @@ import Title from "./Title.astro";
         const json = JSON.stringify(object);
         console.log(object);
         if (!!!object.email || !!!object.message || !!!object.name) {
+          // TODO; Inject errors to help user
           return;
         }
         btn.disabled = true;
-
+        result.classList.add("text-white");
         result.innerHTML = "¡Enviando tú mensaje!";
 
         fetch("https://api.web3forms.com/submit", {
@@ -87,19 +86,18 @@ import Title from "./Title.astro";
           body: json,
         })
           .then(async (response) => {
+            result.classList.remove("text-white");
             let json = await response.json();
             if (response.status == 200) {
               result.classList.add("text-green-500");
-              result.innerHTML = json.message;
+              result.innerHTML = "¡Mensaje enviado correctamente!";
             } else {
-              console.log(response);
               result.classList.add("text-red-500");
-              result.innerHTML = json.message;
+              result.innerHTML = "Ocurrío un error, vuelve a intentarlo";
             }
           })
           .catch((error) => {
-            console.log(error);
-            result.innerHTML = "Something went wrong!";
+            result.innerHTML = "Ocurrío un error, vuelve a intentarlo";
           })
           .then(function () {
             btn.disabled = false;
