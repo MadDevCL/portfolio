@@ -1,7 +1,44 @@
 ---
+import { Image } from "astro:assets";
 import Title from "./Title.astro";
+import htmlIcon from "../images/html5.png";
+import { STACK } from "../config";
+import Stack from "./Stack.astro";
 ---
 
 <section class="mt-12">
   <Title title="¿En qué destaco?" />
+  <div class="md:mx-24 mb-4">
+    <p class="font-montserrat text-white">
+      Actualmente, estoy enfocado en el <span class="text-principal"
+        >desarrollo de aplicaciones web</span
+      > y
+      <span class="text-principal">móviles</span>, abarcando todo el proceso
+      desde el <span class="text-principal">primer</span> commit hasta la entrega
+      en tiendas como <span class="text-principal">Google Play y App Store</span
+      >. Con más de 4 años de experiencia en el desarrollo móvil y web, he
+      creado desde páginas web estáticas sin necesidad de un framework hasta
+      aplicaciones <span class="text-principal">totalmente dinámicas</span> que requieren
+      stacks específicos para cumplir con los <span class="text-principal"
+        >objetivos</span
+      >.
+    </p>
+    <div class="grid grid-cols-2 mt-4">
+      <div>
+        <p class="text-principal font-montserrat font-bold">Especialidad</p>
+        <p class="font-montserrat text-white">Aplicaciones móviles y web</p>
+      </div>
+      <div>
+        <p class="text-principal font-montserrat font-bold text-right">
+          Educación
+        </p>
+        <p class="font-montserrat text-white text-right">
+          Ingeniería en informática
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-5 md:grid-cols-10 mt-10 gap-y-2 md:gap-y-0">
+      {STACK.map(({ src, alt }) => <Stack src={src} alt={alt} />)}
+    </div>
+  </div>
 </section>

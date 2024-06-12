@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div
+  class="bg-[#17202A] rounded mx-auto my-auto p-2 shadow-fuchsia-500 shadow-2xl w-[50px] h-[50px] content-center transition-all hover:bg-fuchsia-500 group py-1.5 px-2.5"
+>
+  <Image
+    src={src}
+    alt={alt}
+    width="40"
+    class="my-auto transition-all duration-300 hover:scale-75"
+  />
+</div>

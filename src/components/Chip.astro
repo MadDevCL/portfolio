@@ -6,7 +6,10 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<span
-  class="bg-[#f7fafc] px-4 py-0 text-xs font-black text-center font-montserrat text-black mr-2 rounded-lg"
-  >{title}</span
->
+<div class="">
+  <div class="bg-[#f7fafc] px-4 py-0 rounded-lg mr-2 content-center">
+    <p class="text-xs font-black text-center font-montserrat text-black">
+      {title}
+    </p>
+  </div>
+</div>

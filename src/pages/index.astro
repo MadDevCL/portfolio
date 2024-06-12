@@ -9,6 +9,8 @@ import Contact from "../components/Contact.astro";
 import Experience from "../components/Experience.astro";
 import Navbar from "../components/Navbar.astro";
 import Actions from "../components/Actions.astro";
+import Separator from "../components/Separator.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout
@@ -23,12 +25,13 @@ import Actions from "../components/Actions.astro";
       <div id="home" class="py-4 md:py-40">
         <Presentation />
         <Actions />
-        <div class="w-full h-[1px] mx-auto my-8 rounded-3xl bg-principal"></div>
+        <Separator />
         <Projects projects={PROJECTS} />
         <Experience />
         <AboutMe />
         <GoodAt />
         <Contact />
+        <Footer />
       </div>
     </div>
   </main>
