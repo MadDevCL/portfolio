@@ -1,5 +1,5 @@
 ---
-
+import NavLink from "./NavLink.astro";
 ---
 
 <section class="">
@@ -7,31 +7,11 @@
     <div
       class="mx-auto bg-black shadow-[0px_0px_4px_1px_#f7fafc] px-6 rounded-lg grid grid-cols-12 md:grid-cols-10"
     >
-      <a
-        href="#home"
-        class="col-span-4 md:col-span-2 font-montserrat font-semibold text-center text-xs md:text-sm md:py-1 md:px-4"
-        >Mad Dev</a
-      >
-      <a
-        href="#proyectos"
-        class="col-span-4 md:col-span-2 font-montserrat font-semibold text-center text-xs md:text-sm md:py-1 md:px-4"
-        >Proyectos</a
-      >
-      <a
-        href="#experiencia"
-        class="col-span-4 md:col-span-2 font-montserrat font-semibold text-center text-xs md:text-sm md:py-1 md:px-4"
-        >Experiencia</a
-      >
-      <a
-        href="#sobre-mi"
-        class="col-span-6 md:col-span-2 font-montserrat font-semibold text-center text-xs md:text-sm md:py-1 md:px-4"
-        >Sobre mí</a
-      >
-      <a
-        href="#contacto"
-        class="col-span-6 md:col-span-2 font-montserrat font-semibold text-center text-xs md:text-sm md:py-1 md:px-4"
-        >Contacto</a
-      >
+      <NavLink href="#home" title="Mad Dev" />
+      <NavLink href="#proyectos" title="Proyectos" />
+      <NavLink href="#experiencia" title="Experiencia" />
+      <NavLink href="#sobre-mi" title="Sobre mi" large />
+      <NavLink href="#contacto" title="Contacto" large />
     </div>
   </div>
 </section>
