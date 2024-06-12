@@ -8,6 +8,7 @@ import GoodAt from "../components/GoodAt.astro";
 import Contact from "../components/Contact.astro";
 import Experience from "../components/Experience.astro";
 import Navbar from "../components/Navbar.astro";
+import Actions from "../components/Actions.astro";
 ---
 
 <Layout
@@ -21,23 +22,7 @@ import Navbar from "../components/Navbar.astro";
     <div class="md:px-14 lg:px-60">
       <div id="home" class="py-4 md:py-40">
         <Presentation />
-        <div
-          class="flex flex-col md:flex-row items-center justify-center mt-4 md:mt-14"
-        >
-          <a
-            href="#contact"
-            class="bg-[#1C1C33] text-white border border-principal rounded px-5 py-1 font-montserrat md:mr-12 mx-auto mb-2 md:mb-0"
-            >¡Hablemos!</a
-          >
-          <button
-            class="bg-[#1C1C33] text-white border border-principal rounded px-5 py-1 font-montserrat md:mr-12 mb-2 md:mb-0"
-            >LinkedIn</button
-          >
-          <button
-            class="bg-[#1C1C33] text-white border border-principal rounded px-5 py-1 font-montserrat md:mb-0"
-            >Correo</button
-          >
-        </div>
+        <Actions />
         <div class="w-full h-[1px] mx-auto my-8 rounded-3xl bg-principal"></div>
         <Projects projects={PROJECTS} />
         <Experience />
