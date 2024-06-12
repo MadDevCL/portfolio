@@ -8,8 +8,10 @@ interface Props {
 const { href, title, large = false } = Astro.props;
 ---
 
-<a
-  href={href}
-  class={`col-span-${large ? 6 : 4} md:col-span-2 font-montserrat font-semibold text-center text-xs md:text-sm md:py-1 md:px-4`}
-  >{title}</a
->
+<div class={`col-span-${large ? "6" : "4"} flex md:col-span-2 md:py-1 md:px-4`}>
+  <a
+    href={href}
+    class={`font-montserrat font-semibold text-center mx-auto text-xs md:text-sm `}
+    >{title}</a
+  >
+</div>
