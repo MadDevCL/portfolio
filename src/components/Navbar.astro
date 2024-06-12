@@ -6,12 +6,14 @@ import NavLink from "./NavLink.astro";
   class="fixed -translate-x-2/4 left-1/2 text-white py-4 w-full md:w-max px-8"
 >
   <div class="bg-black shadow-[0px_0px_4px_1px_#f7fafc] px-6 rounded-lg">
-    <div class="grid grid-cols-3 md:grid-cols-10">
+    <div class="grid grid-cols-3 md:grid-cols-5">
       <NavLink href="#home" title="Mad Dev" />
       <NavLink href="#proyectos" title="Proyectos" />
       <NavLink href="#experiencia" title="Experiencia" />
-      <NavLink href="#sobre-mi" title="Sobre mi" large />
-      <NavLink href="#contacto" title="Contacto" large />
+      <div class="col-span-3 md:col-span-2 flex justify-around">
+        <NavLink href="#sobre-mi" title="Sobre mi" last />
+        <NavLink href="#contacto" title="Contacto" last />
+      </div>
     </div>
   </div>
 </div>
