@@ -7,13 +7,14 @@ import presentationImage from "../images/mad_dev_logo.webp";
 const {} = Astro.props;
 ---
 
-<section class="grid grid-cols-12">
+<section class="grid grid-cols-12 mt-8 md:mt-0">
   <div class="col-span-12 md:col-span-4 content-center">
     <Image
       class="mx-auto my-auto"
       src={presentationImage}
       width="250"
       height="250"
+      loading="eager"
       alt="Mad Dev Presentation Image"
     />
   </div>
