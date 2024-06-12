@@ -4,4 +4,113 @@ import Title from "./Title.astro";
 
 <section class="mt-12">
   <Title title="¡Hablemos!" />
+  <form id="form" class="flex w-full max-w-xl flex-col gap-4 mx-auto">
+    <input
+      type="hidden"
+      name="access_key"
+      value={import.meta.env.FORM_ACCESS_KEY}
+    />
+    <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
+      ¿Como te llamas?:
+      <input
+        type="text"
+        maxlength="30"
+        name="name"
+        placeholder="Wladimir"
+        class="bg-transparent border-b border-principal text-white font-normal focus:border-transparent mt-2"
+      />
+    </label>
+    <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
+      Tú correo
+      <input
+        type="email"
+        maxlength="30"
+        name="email"
+        placeholder="tu-correo@gmail.com"
+        class="bg-transparent border-b border-principal text-white font-normal mt-2"
+      />
+    </label>
+    <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
+      ¡Dejame un mensaje!
+      <textarea
+        name="message"
+        maxlength="250"
+        rows="5"
+        class="bg-transparent border-b text-white font-normal border-principal mt-2"
+      ></textarea>
+    </label>
+    <p id="result"></p>
+    <button
+      id="button"
+      type="submit"
+      class="flex max-w-[150px] justify-center bg-[#1C1C33] text-white border border-principal rounded px-5 py-1"
+    >
+      Envíar
+    </button>
+  </form>
 </section>
+
+<script is:inline>
+  // use astro:page-load event if you are using View Transitions
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      const form = document.getElementById("form");
+      const result = document.getElementById("result");
+      const btn = document.getElementById("button");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.classList.add("was-validated");
+        if (!form.checkValidity()) {
+          form.querySelectorAll(":invalid")[0].focus();
+          return;
+        }
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        console.log(object);
+        if (!!!object.email || !!!object.message || !!!object.name) {
+          return;
+        }
+        btn.disabled = true;
+
+        result.innerHTML = "¡Enviando tú mensaje!";
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.classList.add("text-green-500");
+              result.innerHTML = json.message;
+            } else {
+              console.log(response);
+              result.classList.add("text-red-500");
+              result.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            btn.disabled = false;
+            form.reset();
+            form.classList.remove("was-validated");
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 5000);
+          });
+      });
+    },
+    { once: true }
+  );
+</script>
