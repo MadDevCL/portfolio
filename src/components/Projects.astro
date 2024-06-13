@@ -9,8 +9,8 @@ interface Props {
     title: string;
     description: string;
     tags: string[];
-    siteURL: string;
-    repositoryURL: string;
+    siteURL?: string;
+    repositoryURL?: string;
   }[];
 }
 
@@ -48,10 +48,10 @@ const { projects = [] } = Astro.props;
               {description}
             </p>
             <div class="mt-4">
-              {siteURL && (
+              {!!siteURL && (
                 <Action target="_blank" title="Ver proyecto" to={siteURL} />
               )}
-              {repositoryURL && (
+              {!!repositoryURL && (
                 <Action
                   title="Repositorio"
                   type="secondary"
