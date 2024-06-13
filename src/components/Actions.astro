@@ -7,6 +7,14 @@ import { ACTIONS } from "../config";
   <div
     class="grid grid-cols-2 md:flex md:flex-row md:items-center md:justify-center mt-4 md:mt-14"
   >
-    {ACTIONS.map((action) => <Action {...action} />)}
+    {
+      ACTIONS.map(({ title, to, target }) => (
+        <Action
+          title={title}
+          to={to}
+          target={target as "_self" | "_blank" | "_parent" | "_top"}
+        />
+      ))
+    }
   </div>
 </section>
