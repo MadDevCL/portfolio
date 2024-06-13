@@ -101,3 +101,9 @@ export const STACK = [
     alt: "Icono de Astro",
   },
 ];
+
+export const ACTIONS = [
+  { title: "¡Hablemos!", to: "#contacto" },
+  { title: "LinkedIn", to: "https://linkedin.com", target: "_blank" },
+  { title: "Correo", to: "mailto:maddevcl@gmail.com", target: "_blank" },
+];
