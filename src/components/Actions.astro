@@ -8,11 +8,12 @@ import { ACTIONS } from "../config";
     class="grid grid-cols-2 md:flex md:flex-row md:items-center md:justify-center mt-4 md:mt-14"
   >
     {
-      ACTIONS.map(({ title, to, target }) => (
+      ACTIONS.map(({ title, to, target, last }) => (
         <Action
           title={title}
           to={to}
           target={target as "_self" | "_blank" | "_parent" | "_top"}
+          last={last}
         />
       ))
     }

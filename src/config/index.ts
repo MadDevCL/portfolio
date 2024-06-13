@@ -105,5 +105,10 @@ export const STACK = [
 export const ACTIONS = [
   { title: "¡Hablemos!", to: "#contacto" },
   { title: "LinkedIn", to: "https://linkedin.com", target: "_blank" },
-  { title: "Correo", to: "mailto:maddevcl@gmail.com", target: "_blank" },
+  {
+    title: "Correo",
+    to: "mailto:maddevcl@gmail.com",
+    target: "_blank",
+    last: true,
+  },
 ];
