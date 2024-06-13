@@ -3,6 +3,7 @@ interface Props {}
 
 import { Image } from "astro:assets";
 import presentationImage from "../images/mad_dev_logo.webp";
+import { OWNER } from "../config";
 
 const {} = Astro.props;
 ---
@@ -15,7 +16,7 @@ const {} = Astro.props;
       width="250"
       height="250"
       loading="eager"
-      alt="Mad Dev Presentation Image"
+      alt={`${OWNER} Presentation Image`}
     />
   </div>
   <div
@@ -24,7 +25,7 @@ const {} = Astro.props;
     <h1
       class="text-white mt-8 md:mt-0 text-center md:text-left font-montserrat font-black text-4xl"
     >
-      ¡Hola 👋! Mi nombre es <span class="text-principal">Mad Dev</span>
+      ¡Hola 👋! Mi nombre es <span class="text-principal">{OWNER}</span>
     </h1>
     <p
       class="text-white text-center md:text-left font-montserrat mt-8 font-medium"

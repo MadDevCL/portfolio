@@ -3,51 +3,59 @@ import Title from "./Title.astro";
 ---
 
 <section id="contacto" class="mt-12">
-  <Title title="¡Hablemos!" />
-  <form id="form" class="flex w-full max-w-xl flex-col gap-4 mx-auto">
-    <input
-      type="hidden"
-      name="access_key"
-      value={import.meta.env.FORM_ACCESS_KEY}
-    />
-    <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
-      ¿Como te llamas?
-      <input
-        type="text"
-        maxlength="30"
-        name="name"
-        placeholder="Wladimir"
-        class="bg-transparent border-b border-principal text-white font-normal focus:border-transparent mt-2"
-      />
-    </label>
-    <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
-      Tú correo
-      <input
-        type="email"
-        maxlength="30"
-        name="email"
-        placeholder="tu-correo@gmail.com"
-        class="bg-transparent border-b border-principal text-white font-normal mt-2"
-      />
-    </label>
-    <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
-      ¡Dejame un mensaje!
-      <textarea
-        name="message"
-        maxlength="250"
-        rows="5"
-        class="bg-transparent border-b text-white font-normal border-principal mt-2"
-      ></textarea>
-    </label>
-    <p id="result"></p>
-    <button
-      id="button"
-      type="submit"
-      class="flex max-w-[150px] justify-center bg-[#1C1C33] text-white border border-principal rounded px-5 py-1"
-    >
-      Envíar
-    </button>
-  </form>
+  {
+    !!import.meta.env.FORM_ACCESS_KEY ? (
+      <>
+        <Title title="¡Hablemos!" />
+        <form id="form" class="flex w-full max-w-xl flex-col gap-4 mx-auto">
+          <input
+            type="hidden"
+            name="access_key"
+            value={import.meta.env.FORM_ACCESS_KEY}
+          />
+          <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
+            ¿Como te llamas?
+            <input
+              type="text"
+              maxlength="30"
+              name="name"
+              placeholder="Tu nombre"
+              class="bg-transparent border-b border-principal text-white font-normal focus:border-transparent mt-2"
+            />
+          </label>
+          <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
+            Tú correo
+            <input
+              type="email"
+              maxlength="30"
+              name="email"
+              placeholder="tu-correo@gmail.com"
+              class="bg-transparent border-b border-principal text-white font-normal mt-2"
+            />
+          </label>
+          <label class="flex flex-col text-principal font-bold font-montserrat mb-4">
+            ¡Dejame un mensaje!
+            <textarea
+              name="message"
+              maxlength="250"
+              rows="5"
+              class="bg-transparent border-b text-white font-normal border-principal mt-2"
+            />
+          </label>
+          <p id="result" />
+          <button
+            id="button"
+            type="submit"
+            class="flex max-w-[150px] justify-center bg-[#1C1C33] text-white border border-principal rounded px-5 py-1"
+          >
+            Envíar
+          </button>
+        </form>
+      </>
+    ) : (
+      <div />
+    )
+  }
 </section>
 
 <script is:inline>

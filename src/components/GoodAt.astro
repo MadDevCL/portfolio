@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import Title from "./Title.astro";
 import htmlIcon from "../images/html5.png";
-import { STACK } from "../config";
+import { GOOD_AT, STACK } from "../config";
 import Stack from "./Stack.astro";
 ---
 
 <section class="mt-12">
-  <Title title="¿En qué destaco?" />
+  <Title title="¿En qué destaco? 💯" />
   <div class="md:mx-24 mb-4">
     <p class="font-montserrat text-white">
       Actualmente, estoy enfocado en el <span class="text-principal"
@@ -26,14 +26,14 @@ import Stack from "./Stack.astro";
     <div class="grid grid-cols-2 mt-4">
       <div>
         <p class="text-principal font-montserrat font-bold">Especialidad</p>
-        <p class="font-montserrat text-white">Aplicaciones móviles y web</p>
+        <p class="font-montserrat text-white">{GOOD_AT.specialty}</p>
       </div>
       <div>
         <p class="text-principal font-montserrat font-bold text-right">
           Educación
         </p>
         <p class="font-montserrat text-white text-right">
-          Ingeniería en informática
+          {GOOD_AT.education}
         </p>
       </div>
     </div>

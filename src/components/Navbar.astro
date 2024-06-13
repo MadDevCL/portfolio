@@ -1,4 +1,5 @@
 ---
+import { OWNER } from "../config";
 import NavLink from "./NavLink.astro";
 ---
 
@@ -9,12 +10,16 @@ import NavLink from "./NavLink.astro";
     class="bg-black backdrop-blur bg-opacity-40 shadow-[0px_0px_4px_1px_#f7fafc] px-6 rounded-lg"
   >
     <div class="grid grid-cols-3 md:grid-cols-5">
-      <NavLink href="#home" title="Mad Dev" />
+      <NavLink href="#home" title={OWNER} />
       <NavLink href="#proyectos" title="Proyectos" />
       <NavLink href="#experiencia" title="Experiencia" />
       <div class="col-span-3 md:col-span-2 flex justify-around">
         <NavLink href="#sobre-mi" title="Sobre mi" last />
-        <NavLink href="#contacto" title="Contacto" last />
+        {
+          !!import.meta.env.FORM_ACCESS_KEY && (
+            <NavLink href="#contacto" title="Contacto" last />
+          )
+        }
       </div>
     </div>
   </div>

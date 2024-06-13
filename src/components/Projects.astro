@@ -2,9 +2,16 @@
 import { Image } from "astro:assets";
 import presentationImage from "../images/portfolio_page.png";
 import Chip from "./Chip.astro";
+import Action from "./Action.astro";
 
 interface Props {
-  projects: { title: string; description: string; tags: string[] }[];
+  projects: {
+    title: string;
+    description: string;
+    tags: string[];
+    siteURL: string;
+    repositoryURL: string;
+  }[];
 }
 
 const { projects = [] } = Astro.props;
@@ -18,7 +25,7 @@ const { projects = [] } = Astro.props;
   </h1>
   <div class="grid md:grid-cols-12 gap-4 lg:mx-22">
     {
-      projects.map(({ title, description, tags }) => (
+      projects.map(({ title, description, tags, siteURL, repositoryURL }) => (
         <div class="col-span-12 pt-4 px-4 grid md:grid-cols-2  mb-14 rounded">
           <Image
             class="rounded md:ml-5 mb-4 md:mb-0 shadow-[0px_0px_4px_1px_#f7fafc]"
@@ -40,6 +47,19 @@ const { projects = [] } = Astro.props;
             <p class="font-montserrat font-normal text-white z-10 text-sm text-center">
               {description}
             </p>
+            <div class="mt-4">
+              {siteURL && (
+                <Action target="_blank" title="Ver proyecto" to={siteURL} />
+              )}
+              {repositoryURL && (
+                <Action
+                  title="Repositorio"
+                  type="secondary"
+                  target="_blank"
+                  to={repositoryURL}
+                />
+              )}
+            </div>
           </div>
         </div>
       ))

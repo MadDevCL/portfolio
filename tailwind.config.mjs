@@ -9,7 +9,7 @@ export default {
         montserrat: ["Montserrat"],
       },
       colors: {
-        principal: "#F1C40F",
+        principal: "#3498DB",
       },
     },
   },

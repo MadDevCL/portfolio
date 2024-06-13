@@ -3,14 +3,16 @@ interface Props {
   title: string;
   to: string;
   last?: boolean;
+  type?: "primary" | "secondary";
+  target?: "_self" | "_blank" | "_parent" | "_top";
 }
 
-const { title, to, last } = Astro.props;
+const { title, to, last, type = "primary", target = "_self" } = Astro.props;
 ---
 
 <a
   href={to}
-  class={`bg-[#1C1C33] w-[130px] ${last && "col-span-2"} mx-auto md:mx-0 text-center text-white border border-principal rounded px-5 py-1 font-montserrat md:mr-12 mb-2 md:mb-0`}
+  target={target}
+  class={`bg-${type === "primary" ? "[#1C1C33]" : "transparent"} w-[130px] ${last && "col-span-2"} mx-auto md:mx-0 text-center text-white border border-principal rounded px-5 py-1 font-montserrat md:mr-12 mb-2 md:mb-0`}
+  >{title}</a
 >
-  {title}
-</a>

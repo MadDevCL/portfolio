@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Presentation from "../components/Presentation.astro";
 import Projects from "../components/Projects.astro";
-import { PROJECTS } from "../config";
+import { OWNER, PROJECTS } from "../config";
 import AboutMe from "../components/AboutMe.astro";
 import GoodAt from "../components/GoodAt.astro";
 import Contact from "../components/Contact.astro";
@@ -14,8 +14,8 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout
-  title="Portafolio Mad Dev"
-  description="Portafolio de Mad Dev, desarrollador de software con más de 4 años de experiencia en el desarrollo móvil y web."
+  title={`Portafolio ${OWNER}`}
+  description={`Portafolio de ${OWNER}, desarrollador de software con más de 4 años de experiencia en el desarrollo móvil y web.`}
 >
   <main
     class="h-full inset-0 -z-10 w-full items-center px-5 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
