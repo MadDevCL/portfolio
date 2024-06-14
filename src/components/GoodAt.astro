@@ -12,8 +12,7 @@ import Stack from "./Stack.astro";
     <p class="font-montserrat text-white">
       Actualmente, estoy enfocado en el <span class="text-principal"
         >desarrollo de aplicaciones web</span
-      > y
-      <span class="text-principal">móviles</span>, abarcando todo el proceso
+      > y <span class="text-principal">móviles</span>, abarcando todo el proceso
       desde el <span class="text-principal">primer</span> commit hasta la entrega
       en tiendas como <span class="text-principal">Google Play y App Store</span
       >. Con más de 4 años de experiencia en el desarrollo móvil y web, he
@@ -24,18 +23,26 @@ import Stack from "./Stack.astro";
       >.
     </p>
     <div class="grid grid-cols-2 mt-4">
-      <div>
-        <p class="text-principal font-montserrat font-bold">Especialidad</p>
-        <p class="font-montserrat text-white">{GOOD_AT.specialty}</p>
-      </div>
-      <div>
-        <p class="text-principal font-montserrat font-bold text-right">
-          Educación
-        </p>
-        <p class="font-montserrat text-white text-right">
-          {GOOD_AT.education}
-        </p>
-      </div>
+      {
+        !!GOOD_AT.specialty && (
+          <div>
+            <p class="text-principal font-montserrat font-bold">Especialidad</p>
+            <p class="font-montserrat text-white">{GOOD_AT.specialty}</p>
+          </div>
+        )
+      }
+      {
+        !!GOOD_AT.education && (
+          <div>
+            <p class="text-principal font-montserrat font-bold text-right">
+              Educación
+            </p>
+            <p class="font-montserrat text-white text-right">
+              {GOOD_AT.education}
+            </p>
+          </div>
+        )
+      }
     </div>
     <div class="grid grid-cols-5 md:grid-cols-10 mt-10 gap-y-2 md:gap-y-0">
       {STACK.map(({ src, alt }) => <Stack src={src} alt={alt} />)}

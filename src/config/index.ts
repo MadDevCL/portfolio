@@ -72,7 +72,7 @@ export const PROJECTS = [
 ];
 
 // Sección En qué destaco - Para modificar los textos ir al archivo src\components\GoodAt.astro
-
+// Acá podrás agregar tu educación y especialidad.
 export const GOOD_AT = {
   education: "Ingeniería en informática",
   specialty: "Aplicaciones móviles y web",
