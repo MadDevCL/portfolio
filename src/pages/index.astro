@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Presentation from "../components/Presentation.astro";
 import Projects from "../components/Projects.astro";
-import { OWNER, PROJECTS } from "../config";
+import { OWNER, SECTION_ORDER } from "../config";
 import AboutMe from "../components/AboutMe.astro";
 import GoodAt from "../components/GoodAt.astro";
 import Contact from "../components/Contact.astro";
@@ -11,6 +11,17 @@ import Navbar from "../components/Navbar.astro";
 import Actions from "../components/Actions.astro";
 import Separator from "../components/Separator.astro";
 import Footer from "../components/Footer.astro";
+
+const sections = {
+  presentation: Presentation,
+  actions: Actions,
+  separator: Separator,
+  projects: Projects,
+  experience: Experience,
+  aboutMe: AboutMe,
+  goodAt: GoodAt,
+  contact: Contact,
+};
 ---
 
 <Layout
@@ -21,16 +32,17 @@ import Footer from "../components/Footer.astro";
     class="h-full inset-0 -z-10 w-full items-center px-5 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
   >
     <Navbar />
-    <div class="md:px-14 lg:px-60">
+    <div class="md:px-6 lg:px-60">
       <div id="home" class="py-4 md:py-40">
-        <Presentation />
-        <Actions />
-        <Separator />
-        <Projects projects={PROJECTS} />
-        <Experience />
-        <AboutMe />
-        <GoodAt />
-        <Contact />
+        {
+          SECTION_ORDER?.map((section) => {
+            const Component = sections?.[section];
+            if (!Component) {
+              return null;
+            }
+            return <Component />;
+          })
+        }
         <Footer />
       </div>
     </div>

@@ -9,24 +9,43 @@ import tailwindIcon from "../images/tailwindcss.png";
 import mobileIcon from "../images/android.png";
 import nodeIcon from "../images/nodejs.png";
 
+// ORDEN DE LAS SECCIONES si quitas una de estas secciones se ocultará automáticamente.
+export const SECTION_ORDER = [
+  "presentation",
+  "actions",
+  "separator",
+  "experience",
+  "projects",
+  "aboutMe",
+  "goodAt",
+  "contact",
+];
+
+// Con esto modificarás el nombre en todos lados!
+// Para modificar sección about me ir al archivo src\components\AboutMe.astro
 export const OWNER = "Mad Dev";
+
+// Call to actions
+export const ACTIONS = [
+  { title: "¡Hablemos!", to: "#contacto" },
+  { title: "LinkedIn", to: "https://linkedin.com", target: "_blank" },
+  {
+    title: "Correo",
+    to: "mailto:maddevcl@gmail.com",
+    target: "_blank",
+    last: true,
+  },
+];
 
 // EXPERIENCIA
 
 export const EXPERIENCE = [
   {
-    job: "ACTUAL WORK",
+    job: "TikTok",
     date: "2021 - Actualidad",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     tags: ["Senior", "Desarrollo móvil", "CI/CD"],
-  },
-  {
-    job: "HackWeek",
-    date: "2020 - 2021",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    tags: ["Desarrollo web", "Desarrollo móvil", "Fullstack"],
   },
 ];
 
@@ -52,12 +71,15 @@ export const PROJECTS = [
   },
 ];
 
-// Sección En qué destaco
+// Sección En qué destaco - Para modificar los textos ir al archivo src\components\GoodAt.astro
 
 export const GOOD_AT = {
   education: "Ingeniería en informática",
   specialty: "Aplicaciones móviles y web",
 };
+
+// Stacks que conoces, acá puedes descargar iconos que falten:
+// https://www.figma.com/design/WcktwhzUBFqGAdzTgv3igd/Tech-Stack-Icons-%26-Design-Stack-Icons-(Community)
 
 export const STACK = [
   {
@@ -102,13 +124,4 @@ export const STACK = [
   },
 ];
 
-export const ACTIONS = [
-  { title: "¡Hablemos!", to: "#contacto" },
-  { title: "LinkedIn", to: "https://linkedin.com", target: "_blank" },
-  {
-    title: "Correo",
-    to: "mailto:maddevcl@gmail.com",
-    target: "_blank",
-    last: true,
-  },
-];
+// Sigueme y da like si lees esto ;)
